@@ -1,0 +1,36 @@
+p {
+  max-width: 100%;
+  text-align: start;
+}
+
+p.p1 {
+  font-size: calc(6 * var(--cell) - 12 * var(--point));
+  line-height: calc(6 * var(--cell));
+}
+
+p.p2 {
+  font-size: calc(5 * var(--cell) - 10 * var(--point));
+  line-height: calc(5 * var(--cell));
+}
+
+p.p3 {
+  font-size: calc(4 * var(--cell) - 8 * var(--point));
+  line-height: calc(4 * var(--cell));
+}
+
+p.p4 {
+  font-size: calc(3 * var(--cell) - 6 * var(--point));
+  line-height: calc(3 * var(--cell));
+}
+
+p.p5 {
+  font-size: calc(2 * var(--cell) - 4 * var(--point));
+  line-height: calc(2 * var(--cell));
+}
+
+p.p6 {
+  font-size: calc(1 * var(--cell) - 2 * var(--point));
+  line-height: calc(1 * var(--cell));
+}
+
+/*# sourceMappingURL=paragraphs.css.map */

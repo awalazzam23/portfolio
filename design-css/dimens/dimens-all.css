@@ -1,0 +1,25 @@
+:root {
+  /* Width : Narrow, Medium  , Wide */
+  /* Height: Short , Moderate, Tall */
+  /* unitless number */
+  --cell-points: 7;
+  --width-cells-min: 13;
+  --width-points-min: calc(var(--width-cells-min) * var(--cell-points));
+  /* px */
+  --cell-min: 14px;
+  --point-min: 2px;
+  /* length */
+  --height: 100vh;
+  --width: 100vw;
+  /* unitless number */
+  --width-cells: round(down, calc(var(--width) / var(--cell-min)), 1);
+  --width-points: calc(var(--width-cells) * var(--cell-points));
+  /* px */
+  --cell: round(nearest, calc(var(--width) / var(--width-cells)), 1px);
+  --point: round(nearest, calc(var(--width) / var(--width-points)), 1px);
+  /* unitless number */
+  --height-cells: round(down, calc(var(--height) / var(--cell)), 1);
+  --height-points: calc(var(--height-cells) * var(--cell-points));
+}
+
+/*# sourceMappingURL=dimens-all.css.map */

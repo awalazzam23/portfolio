@@ -1,0 +1,152 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --recessive-width: calc(var(--cell) * round(up, var(--width-cells) / 3, 1));
+  --dominant-width: calc(var(--width) - var(--recessive-width));
+  --card-transition: cubic-bezier(0.25, 0, 0.25, 1);
+  --color-recessive: var(--color-b15-pry-mie-enabled-active-unselected);
+  --color-recessive-header: var(--color-b15-pry-lor-enabled-active-unselected);
+  --color-recessive-card: var(--color-b25-pry-mie-enabled-active-unselected);
+  --color-dominant: var(--color-b15-sey-mie-enabled-active-unselected);
+  --color-dominant-header: var(--color-b15-sey-hir-enabled-active-unselected);
+  --color-dominant-card: var(--color-b25-sey-mie-enabled-active-unselected);
+  --color-footer: var(--color-b15-sey-lor-enabled-inactive-unselected);
+}
+
+html {
+  font-size: calc(var(--cell) - 2 * var(--point));
+  line-height: var(--cell);
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 100vh;
+}
+
+#panes {
+  display: flex;
+}
+
+.man-hol-1 {
+  margin: 0 var(--cell);
+}
+
+.man-vel-1 {
+  margin: var(--cell) 0;
+}
+
+.man-1 {
+  margin: var(--cell);
+}
+
+.card {
+  margin: calc(2 * var(--cell)) var(--cell) var(--cell);
+  padding: var(--cell);
+  border-radius: var(--cell);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition:
+    transform 0.5s var(--card-transition),
+    box-shadow 0.5s var(--card-transition);
+}
+
+.card-recessive {
+  background-color: var(--color-recessive-card);
+}
+
+.card-dominant {
+  background-color: var(--color-dominant-card);
+}
+
+.floatable:hover {
+  transform: translateY(calc(-1 * var(--cell)));
+  box-shadow:
+    0 var(--cell) var(--cell) 0 rgb(0 0 0 / 0.2),
+    0 var(--cell) var(--cell) 0 rgb(0 0 0 / 0.2);
+}
+
+#shared-footer {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  width: 100%;
+  min-height: calc(5 * var(--cell));
+  padding: 0 var(--cell);
+  background-color: var(--color-footer);
+  align-items: flex-start;
+  justify-content: center;
+}
+
+#pane-recessive {
+  flex: 0 0 var(--recessive-width);
+  background-color: var(--color-recessive);
+  background-image: linear-gradient(
+    to bottom,
+    var(--color-recessive-header) 0%,
+    var(--color-recessive) var(--cell),
+    var(--color-recessive) 100%
+  );
+}
+
+#pane-dominant {
+  flex: 1;
+  background-color: var(--color-dominant);
+  background-image: linear-gradient(
+    to bottom,
+    var(--color-dominant-header) 0%,
+    var(--color-dominant) var(--cell),
+    var(--color-dominant) 100%
+  );
+}
+
+#header-recessive {
+  /* padding-bottom: calc(1 * var(--cell)); */
+  /* margin-bottom: calc(-0.5 * var(--cell)); */
+  height: calc(5 * var(--cell));
+  background-color: var(--color-recessive-header);
+  background-image: linear-gradient(
+    to bottom,
+    var(--color-recessive-header) 0%,
+    var(--color-recessive-header) calc(100% - var(--cell)),
+    var(--color-recessive) 100%
+  );
+}
+
+#header-dominant {
+  /* padding-bottom: calc(1 * var(--cell)); */
+  /* margin-bottom: calc(-0.5 * var(--cell)); */
+  height: calc(5 * var(--cell));
+  background-color: black;
+  background-image: linear-gradient(
+    to bottom,
+    black 0%,
+    black calc(100% - var(--cell)),
+    var(--color-dominant) 100%
+  );
+}
+
+#profile-image {
+  --one-side-margin: calc(
+    var(--cell) * round(nearest, var(--width-cells) / 9, 1)
+  );
+  display: block;
+  margin: calc(2 * var(--cell)) var(--one-side-margin) var(--cell);
+  width: calc(var(--recessive-width) - 2 * var(--one-side-margin));
+  max-width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  object-position: left;
+  border-radius: var(--cell);
+  transition:
+    transform 0.5s var(--card-transition),
+    box-shadow 0.5s var(--card-transition);
+}
