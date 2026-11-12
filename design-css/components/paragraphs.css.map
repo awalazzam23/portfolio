@@ -1,1 +1,1 @@
-{"version":3,"sourceRoot":"","sources":["../../design-sass/components/paragraphs.scss"],"names":[],"mappings":"AAAA;EACE;EACA;;;AAKA;EACE;EACA;;;AAFF;EACE;EACA;;;AAFF;EACE;EACA;;;AAFF;EACE;EACA;;;AAFF;EACE;EACA;;;AAFF;EACE;EACA","file":"paragraphs.css"}
+{"version":3,"sourceRoot":"","sources":["../../design-scss/components/paragraphs.scss"],"names":[],"mappings":"AAAA;EACE;;;AAKA;EACE;EACA;;;AAFF;EACE;EACA;;;AAFF;EACE;EACA;;;AAFF;EACE;EACA;;;AAFF;EACE;EACA;;;AAFF;EACE;EACA","file":"paragraphs.css"}

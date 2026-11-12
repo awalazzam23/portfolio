@@ -9,32 +9,72 @@
     <link rel="stylesheet" href="design-css/colors/colors-hierarchy.css">
     <link rel="stylesheet" href="design-css/colors/colors-semantic.css">
     <link rel="stylesheet" href="design-css/themes/light-theme-all.css">
-    <link rel="stylesheet" href="design-css/components/headings-light.css">
+    <link rel="stylesheet" href="design-css/components/fore-colors-light.css">
     <link rel="stylesheet" href="design-css/dimens/dimens-all.css">
     <link rel="stylesheet" href="design-css/components/headings.css">
     <link rel="stylesheet" href="design-css/components/paragraphs.css">
     <link rel="stylesheet" href="design-css/stylesheets/style-light.css">
+    <!-- JavaScript Validation Script -->
+    <script>
+        function validateForm(event) {
+            // Prevent form submission by default to check validation
+            event.preventDefault();
+
+            const fullName = document.getElementById('fullname').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const country = document.getElementById('country').value.trim();
+            const comments = document.getElementById('comments').value.trim();
+
+            // Check if any field is empty
+            if (fullName === "" || email === "" || country === "" || comments === "") {
+                alert("Error: All fields must be filled out before submission.");
+                return false;
+            }
+
+            // Display simple alert message confirming successful submission
+            alert("Thank you! Your form was submitted successfully.");
+
+            // Optionally reset the form
+            document.getElementById('contactForm').reset();
+            return true;
+        }
+    </script>
 </head>
 
 <body>
     <div id="panes">
         <div id="pane-recessive" class="pane">
             <header id="header-recessive">
-                <h5 id="full-name" class="sey"> Ahmad Wajeeh Al-Azzam </h5>
+                <h5 id="full-name" class="h5 cor5 pry lor center-text"> Ahmad Wajeeh <!-- Al-Azzam --> </h5>
             </header>
 
             <main>
-                <img id="profile-image" class="floatable" src="assets/me coding.jpg"
-                    alt="Ahmad Wajeeh Al-Azzam Profile Photo">
+                <img id="profile-image" class="floatable" src="assets/me coding.jpg" alt="Profile Photo">
 
-                <p id="university" class="p5 man-hol-1"> University: Jordan University of Science & Technology </p>
-                <p id="faculty" class="p5 man-hol-1"> Faculty: Computer & Information Technology </p>
-                <p id="major" class="p5 man-hol-1"> Major: Computer Science </p>
-                <p id="academic-level" class="p5 man-hol-1"> Academic Level: Fourth Year </p>
+                <p id="university" class="profile-meta">
+                    <span class="meta-key">University:</span>
+                    <span class="meta-value">Jordan University of Science & Technology</span>
+                </p>
+                <p id="student-id" class="profile-meta">
+                    <span class="meta-key">Student ID:</span>
+                    <span class="meta-value">170242</span>
+                </p>
+                <p id="faculty" class="profile-meta">
+                    <span class="meta-key">Faculty:</span>
+                    <span class="meta-value">Computer & Information Technology</span>
+                </p>
+                <p id="major" class="profile-meta">
+                    <span class="meta-key">Major:</span>
+                    <span class="meta-value">Computer Science</span>
+                </p>
+                <p id="academic-level" class="profile-meta">
+                    <span class="meta-key">Academic Level:</span>
+                    <span class="meta-value">Fourth Year</span>
+                </p>
 
                 <section class="card card-recessive floatable">
-                    <h5 id="bio-heading"> Biography </h5>
-                    <p id="bio-content" class="p5 man-hol-1">
+                    <h5 id="bio-heading" class="h5 cor8 pry center-text"> Biography </h5>
+                    <p id="bio-content" class="p5">
                         Software Developer specialized in building Mobile Applications for Android, using Kotlin, and
                         depending on Android Jetpack, including Jetpack Compose
                     </p>
@@ -45,179 +85,219 @@
 
 
         <div id="pane-dominant" class="pane">
-            <header class="header-dominant">
-                <nav>
-                    <ul>
-                        <li><a href="index.html" class="active">Home</a></li>
-                        <li><a href="contact.html">Contact Me</a></li>
-                    </ul>
+            <header id="header-dominant">
+                <!-- Radio buttons to track active state -->
+                <input type="radio" name="tab-group" id="radio-none" checked>
+                <input type="radio" name="tab-group" id="radio-home">
+                <input type="radio" name="tab-group" id="radio-contact">
+                <nav id="nav-pages">
+                    <label for="radio-none" class="nav-page p5" style="display: none;"> None </label>
+                    <label for="radio-home" class="nav-page p5"> Home </label>
+                    <label for="radio-contact" class="nav-page p5"> Contact Me </label>
                 </nav>
             </header>
 
+
+
             <main>
-                <!-- Key Soft Skills Section -->
-                <section class="card">
-                    <h5>Key Soft Skills</h5>
-                    <ul class="skills-list">
-                        <li>Teamwork</li>
-                        <li>Analytical Thinking</li>
-                        <li>Problem-Solving</li>
-                        <li>Communication</li>
-                        <li>Adaptability</li>
-                    </ul>
-                </section>
+                <div id="tab-content">
+                    <div id="panel-home" class="tab-panel">
+                        <!-- Key Soft Skills Section -->
+                        <section class="card">
+                            <h5>Key Soft Skills</h5>
+                            <ul class="skills-list">
+                                <li>Teamwork</li>
+                                <li>Analytical Thinking</li>
+                                <li>Problem-Solving</li>
+                                <li>Communication</li>
+                                <li>Adaptability</li>
+                            </ul>
+                        </section>
 
-                <!-- Favorite Programming Languages / Tools Table -->
-                <section class="card">
-                    <h6>Favorite Tools & Frameworks</h2>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Item</th>
-                                    <th>Type</th>
-                                    <th>Official Link</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Python</td>
-                                    <td>Programming Language</td>
-                                    <td><a href="https://www.python.org" target="_blank">python.org</a></td>
-                                </tr>
-                                <tr>
-                                    <td>Wireshark</td>
-                                    <td>Cybersecurity Tool</td>
-                                    <td><a href="https://www.wireshark.org" target="_blank">wireshark.org</a></td>
-                                </tr>
-                                <tr>
-                                    <td>React</td>
-                                    <td>Framework</td>
-                                    <td><a href="https://react.dev" target="_blank">react.dev</a></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                </section>
+                        <!-- Favorite Programming Languages / Tools Table -->
+                        <section class="card">
+                            <h6>Favorite Tools & Frameworks</h2>
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Item</th>
+                                            <th>Type</th>
+                                            <th>Official Link</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Python</td>
+                                            <td>Programming Language</td>
+                                            <td><a href="https://www.python.org" target="_blank">python.org</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Wireshark</td>
+                                            <td>Cybersecurity Tool</td>
+                                            <td><a href="https://www.wireshark.org" target="_blank">wireshark.org</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>React</td>
+                                            <td>Framework</td>
+                                            <td><a href="https://react.dev" target="_blank">react.dev</a></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                        </section>
 
-                <!-- Future Goals Section -->
-                <section class="card">
-                    <h6>Where Do I See Myself in 4 Years?</h2>
-                        <p>
-                            Over the next four years, I aim to establish a robust career specializing in cybersecurity,
-                            with
-                            a
-                            strong focus on penetration testing and cloud security architecture. I plan to secure
-                            industry-certified credentials such as OSCP and CISSP to validate my hands-on technical
-                            expertise.
-                            Ultimately, I see myself leading security audits for enterprise networks or contributing to
-                            advanced
-                            threat intelligence teams. Whether working on the front lines of digital defense or pursuing
-                            postgraduate studies, my goal is to actively safeguard critical digital infrastructures
-                            against
-                            emerging threats.
-                        </p>
-                </section>
+                        <!-- Future Goals Section -->
+                        <section class="card">
+                            <h6>Where Do I See Myself in 4 Years?</h2>
+                                <p>
+                                    Over the next four years, I aim to establish a robust career specializing in
+                                    cybersecurity,
+                                    with
+                                    a
+                                    strong focus on penetration testing and cloud security architecture. I plan to
+                                    secure
+                                    industry-certified credentials such as OSCP and CISSP to validate my hands-on
+                                    technical
+                                    expertise.
+                                    Ultimately, I see myself leading security audits for enterprise networks or
+                                    contributing to
+                                    advanced
+                                    threat intelligence teams. Whether working on the front lines of digital defense or
+                                    pursuing
+                                    postgraduate studies, my goal is to actively safeguard critical digital
+                                    infrastructures
+                                    against
+                                    emerging threats.
+                                </p>
+                        </section>
 
-                <!-- Mailto Link -->
-                <section class="card contact-direct">
-                    <h6>Get in Touch Directly</h2>
-                        <p>You can reach me via email at: <a
-                                href="mailto:ahmad@cit.just.edu.jo">ahmad@cit.just.edu.jo</a>
-                        </p>
-                </section>
+                        <!-- Mailto Link -->
+                        <section class="card contact-direct">
+                            <h6>Get in Touch Directly</h2>
+                                <p>You can reach me via email at: <a
+                                        href="mailto:ahmad@cit.just.edu.jo">ahmad@cit.just.edu.jo</a>
+                                </p>
+                        </section>
 
-                <section class="card">
-                    <h6>Key Soft Skills</h2>
-                        <ul class="skills-list">
-                            <li>Teamwork</li>
-                            <li>Analytical Thinking</li>
-                            <li>Problem-Solving</li>
-                            <li>Communication</li>
-                            <li>Adaptability</li>
-                        </ul>
-                </section>
+                        <section class="card">
+                            <h6>Key Soft Skills</h2>
+                                <ul class="skills-list">
+                                    <li>Teamwork</li>
+                                    <li>Analytical Thinking</li>
+                                    <li>Problem-Solving</li>
+                                    <li>Communication</li>
+                                    <li>Adaptability</li>
+                                </ul>
+                        </section>
 
-                <!-- Favorite Programming Languages / Tools Table -->
-                <section class="card">
-                    <h6>Favorite Tools & Frameworks</h2>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Item</th>
-                                    <th>Type</th>
-                                    <th>Official Link</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Python</td>
-                                    <td>Programming Language</td>
-                                    <td><a href="https://www.python.org" target="_blank">python.org</a></td>
-                                </tr>
-                                <tr>
-                                    <td>Wireshark</td>
-                                    <td>Cybersecurity Tool</td>
-                                    <td><a href="https://www.wireshark.org" target="_blank">wireshark.org</a></td>
-                                </tr>
-                                <tr>
-                                    <td>React</td>
-                                    <td>Framework</td>
-                                    <td><a href="https://react.dev" target="_blank">react.dev</a></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                </section>
+                        <!-- Favorite Programming Languages / Tools Table -->
+                        <section class="card">
+                            <h6>Favorite Tools & Frameworks</h2>
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Item</th>
+                                            <th>Type</th>
+                                            <th>Official Link</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Python</td>
+                                            <td>Programming Language</td>
+                                            <td><a href="https://www.python.org" target="_blank">python.org</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Wireshark</td>
+                                            <td>Cybersecurity Tool</td>
+                                            <td><a href="https://www.wireshark.org" target="_blank">wireshark.org</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>React</td>
+                                            <td>Framework</td>
+                                            <td><a href="https://react.dev" target="_blank">react.dev</a></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                        </section>
 
-                <!-- Future Goals Section -->
-                <section class="card">
-                    <h6>Where Do I See Myself in 4 Years?</h2>
-                        <p>
-                            Over the next four years, I aim to establish a robust career specializing in cybersecurity,
-                            with
-                            a
-                            strong focus on penetration testing and cloud security architecture. I plan to secure
-                            industry-certified credentials such as OSCP and CISSP to validate my hands-on technical
-                            expertise.
-                            Ultimately, I see myself leading security audits for enterprise networks or contributing to
-                            advanced
-                            threat intelligence teams. Whether working on the front lines of digital defense or pursuing
-                            postgraduate studies, my goal is to actively safeguard critical digital infrastructures
-                            against
-                            emerging threats.
-                        </p>
-                </section>
+                        <!-- Future Goals Section -->
+                        <section class="card">
+                            <h6>Where Do I See Myself in 4 Years?</h2>
+                                <p>
+                                    Over the next four years, I aim to establish a robust career specializing in
+                                    cybersecurity,
+                                    with
+                                    a
+                                    strong focus on penetration testing and cloud security architecture. I plan to
+                                    secure
+                                    industry-certified credentials such as OSCP and CISSP to validate my hands-on
+                                    technical
+                                    expertise.
+                                    Ultimately, I see myself leading security audits for enterprise networks or
+                                    contributing to
+                                    advanced
+                                    threat intelligence teams. Whether working on the front lines of digital defense or
+                                    pursuing
+                                    postgraduate studies, my goal is to actively safeguard critical digital
+                                    infrastructures
+                                    against
+                                    emerging threats.
+                                </p>
+                        </section>
 
-                <!-- Mailto Link -->
-                <section class="card contact-direct">
-                    <h6>Get in Touch Directly</h2>
-                        <p>You can reach me via email at: <a
-                                href="mailto:ahmad@cit.just.edu.jo">ahmad@cit.just.edu.jo</a>
-                        </p>
-                </section>
+                        <!-- Mailto Link -->
+                        <section class="card contact-direct">
+                            <h6>Get in Touch Directly</h2>
+                                <p>You can reach me via email at: <a
+                                        href="mailto:ahmad@cit.just.edu.jo">ahmad@cit.just.edu.jo</a>
+                                </p>
+                        </section>
+                    </div>
+
+
+
+                    <div id="panel-contact" class="tab-panel">
+                        <header class="profile-header">
+                            <h1>Contact Me</h1>
+                            <p class="subtitle">Feel free to drop a message using the form below.</p>
+                        </header>
+
+                        <!-- Web Form -->
+                        <form id="contactForm" onsubmit="validateForm(event)">
+                            <div class="form-group">
+                                <label for="fullname">Full Name:</label>
+                                <input type="text" id="fullname" name="fullname">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">Email Address:</label>
+                                <input type="email" id="email" name="email">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="country">Country:</label>
+                                <input type="text" id="country" name="country">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="comments">Comments / Message:</label>
+                                <textarea id="comments" name="comments" rows="5"></textarea>
+                            </div>
+
+                            <button type="submit" class="submit-btn">Submit</button>
+                        </form>
+                    </div>
+                </div>
             </main>
-
-            <footer>
-                <p>&copy; 2026 Ahmad Ali. Jordan University of Science and Technology.</p>
-            </footer>
-
-            <br>
-            <p>Some Content</p>
-            <p>Some Content</p>
-            <p>Some Content</p>
-            <br>
-            <p>Some Content</p>
-            <p>Some Content</p>
-            <p>Some Content</p>
-            <br>
-            <p>Some Content</p>
-            <p>Some Content</p>
-            <p>Some Content</p>
         </div>
     </div>
 
 
 
     <footer id="shared-footer">
-        <p>Latest Update: 09 November 2026.</p>
+        <p>Latest Update: 12 November 2026.</p>
         <p>&copy; 2026 Ahmad Wajeeh Al-Azzam. Jordan University of Science and Technology.</p>
     </footer>
 </body>

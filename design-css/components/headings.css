@@ -5,35 +5,34 @@ h4,
 h5,
 h6 {
   max-width: 100%;
-  text-align: center;
 }
 
-h1 {
+.h1 {
   font-size: calc(6 * var(--cell));
   line-height: calc(8 * var(--cell));
 }
 
-h2 {
+.h2 {
   font-size: calc(5 * var(--cell));
   line-height: calc(7 * var(--cell));
 }
 
-h3 {
+.h3 {
   font-size: calc(4 * var(--cell));
   line-height: calc(6 * var(--cell));
 }
 
-h4 {
+.h4 {
   font-size: calc(3 * var(--cell));
   line-height: calc(5 * var(--cell));
 }
 
-h5 {
+.h5 {
   font-size: calc(2 * var(--cell));
   line-height: calc(4 * var(--cell));
 }
 
-h6 {
+.h6 {
   font-size: calc(1 * var(--cell));
   line-height: calc(3 * var(--cell));
 }
